@@ -1,0 +1,17 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: aysls
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: bilingual-bulletin
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-south-1
+
+functions:
+  get-news:
+    handler: handler.getNews
+    events:
+      - httpApi:
+          path: /
+          method: get
